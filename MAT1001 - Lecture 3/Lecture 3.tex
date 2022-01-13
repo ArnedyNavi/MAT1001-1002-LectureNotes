@@ -449,19 +449,19 @@ Let $z$ satisfy
 \]
 Then
 \begin{align*} 
-    y = \frac{1}{1 + z} - 1 = - \frac{z}{1 + z} \textrm{\tab} \Rightarrow \textrm{\tab} \frac{1}{y} = - \frac{1 + 1}{z} \\
+    y = \frac{1}{1 + z} - 1 = - \frac{z}{1 + z} \textrm{\tab} \Rightarrow \textrm{\tab} \frac{1}{y} = - \frac{1 + z}{z} \\
 \end{align*}
 
 \noindent
 So,
 \begin{align*} 
     (1 + y)^{\frac{1}{y}} &= \left(\frac{1}{1 + z} \right)^{ -\frac{1 + z}{z}} \\
-    &= (1 + z)^{ -\frac{1 + z}{z}} \\
+    &= (1 + z)^{\frac{1 + z}{z}} \\
     &= (1 + z)^{\frac{1}{z}}(1 + z)
 \end{align*}
 
 \noindent
-As $y \to 0^{-}$, $z = -y/(1 + y) \to 0^{+}$, So
+As $y \to 0^{-}$, $z = \frac{-y}{1 + y} \to 0^{+}$, So
 \begin{align*} 
     \lim_{y \to 0^{-}} &= \lim_{z \to 0^{+}} (1 + z)^{\frac{1}{z}}(1 + z) \\
     &= \lim_{z \to 0^{+}} (1 + z)^{\frac{1}{z}} \cdot \lim_{z \to 0^{+}} (1 + z) \\
@@ -479,20 +479,20 @@ As $y \to 0^{-}$, $z = -y/(1 + y) \to 0^{+}$, So
 Let $f(x) = e^x$, then $f'(x) = e^x$.
 \paragraph{Proof} First we define natural logarithm function as 
 \[
-    y = e^x \Rightarrow ln y = x    
+    y = e^x \Rightarrow \ln y = x    
 \]
 
 \noindent 
 We have special limit forms:
 \[
-    \lim_{x \to 0} \frac{ln(1 + x)}{x} = 1 \textrm{\tab and \tab} \lim_{x \to 0} \frac{e^x - 1}{x} = 1 
+    \lim_{x \to 0} \frac{\ln(1 + x)}{x} = 1 \textrm{\tab and \tab} \lim_{x \to 0} \frac{e^x - 1}{x} = 1 
 \]
 
 (1)
 \begin{align*} 
     \lim_{x \to 0} \frac{\ln(1 + x)}{x} &= \lim_{x \to 0} \frac{1}{x} \cdot {\ln(1 + x)} \\
     &= \lim_{x \to 0} \ln(1 + x)^{\frac{1}{x}} \\
-    &= \ln(\lim_{x \to 0} (1 + x)^\frac{1}{x} \\
+    &= \ln(\lim_{x \to 0} (1 + x)^\frac{1}{x}) \\
     &= \ln(e) = 1
 \end{align*}
 
@@ -503,7 +503,7 @@ We have special limit forms:
 Let $y = e^x - 1 \Rightarrow  x = \ln(1 + y)$ and as $x \to 0$, $y \to 0$
 \begin{align*} 
     \lim_{x \to 0} \frac{e^x - 1}{x} &= \lim_{y \to 0} \frac{y}{\ln(1 + y)} \\
-    &= \frac{1}{\lim_{y \to 0} \frac{\ln(1 + y)}{y}}
+    &= \frac{1}{\lim_{y \to 0} \frac{\ln(1 + y)}{y}} = 1
 \end{align*}
 
 $f(x) = e^x$, 

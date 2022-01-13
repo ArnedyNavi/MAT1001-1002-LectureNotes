@@ -99,13 +99,13 @@ Absolute Maximum = 4 at $x = 2$ Absolute Minimum = 0 at $x = 0$ \\
 A function $f$ has a \textbf{local maximum} value at $a$ point $c$ within its
 domain $D$ if 
 \[ 
-    f(x) \leq f(c)\: \forall\quad x \in (c - \delta, c + \delta) \cap D
+    f(x) \leq f(c)\: \forall\, x \in (c - \delta, c + \delta) \cap D
 \]
 
 \noindent 
 A function $f$ has a \textbf{local minimum} value at $a$ point $c$ within its domain $D$ if
 \[ 
-    f(x) \geq f(c)\: \forall\quad x \in (c - \delta, c + \delta) \cap D
+    f(x) \geq f(c)\: \forall \, x \in (c - \delta, c + \delta) \cap D
 \]
 
 \begin{figure}[h!]
@@ -198,7 +198,7 @@ Let
 \]
 for 
 \[
-    x \in (c - a, c + 1) \setminus {c} 
+    x \in (c - a, c + a) \setminus {c} 
 \]
 
 (i) For $x \in (c - a, c)$ 
@@ -244,7 +244,7 @@ $m$ and $M$ are absolute minimum and maximum respectively.  \\
 
 \noindent
 (i) If $m = M$, then $f(x) = M \; \forall x \in [a, b]$, so $f'(c) = 0$ for any $c \in (a, b)$.  \\
-(ii) Suppose $m < M$ then either $f(a) = f(b) \neq m$ or $f(a) = f(b) \neq M$. One or bot must holds true. So:
+(ii) Suppose $m < M$ then either $f(a) = f(b) \neq m$ or $f(a) = f(b) \neq M$. One or both must holds true. So:
 
 (1) $f(a) = f(b) \neq m \Rightarrow \: \exists \: c_1 \in (a,b) $ s.t. $f(c_1) = m$ 
 
@@ -307,13 +307,13 @@ First we define $h(x)$ on $[a,b]$ as
 \end{figure}
 Hence, $h(a) = h(b) = 0$ (see from the graph).
 
-Since $h$ is continuos on $[a,b]$ and differentiable on $(a,b)$, then by 
+Since $h$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then by 
 Rolle's theorem there exists $c \in (a,b)$ such that $h'(c) = 0$
 
 \begin{align*} 
-     h'(x) &= f'(x) - \frac{f(b) - f(a)}{b - a}  \textrm{\tab} \forall x \in (a,b)\\
-    0 &= f'(x) - \frac{f(b) - f(a)}{b - a}\\
-    f'(x) &= \frac{f(b) - f(a)}{b - a} \\
+     h'(c) &= f'(c) - \frac{f(b) - f(a)}{b - a}  \textrm{\tab} \forall x \in (a,b)\\
+    0 &= f'(c) - \frac{f(b) - f(a)}{b - a}\\
+    f'(c) &= \frac{f(b) - f(a)}{b - a} \\
 \end{align*}
 
 \subsection{Consequences and Corollary}
@@ -364,7 +364,7 @@ By corollary MVT 1:
 
 \paragraph{Example 1} If $f'(x) = \sin x$ then what is $f(x)$? \\
 
-We know that if $g(x) = - \cos x$ then $g'(x) = sin (x) = f'(x)$ $\forall x$.
+We know that if $g(x) = - \cos x$ then $g'(x) = \sin (x) = f'(x)$ $\forall x$.
 Hence $f(x) = - \cos x + C$ with C is a constant. 
 
 \paragraph{Note} This concept is called antiderivative and will be covered later.
@@ -376,7 +376,7 @@ Hence $f(x) = - \cos x + C$ with C is a constant.
 
 (i) For the case $x = y$ then both sides = 0, hence it's proven \\ 
 (ii) For the case $x \neq y$, let $y < x$. \\
-Let $f(z) = sin(z)$. Since $\sin z$ is differentiable and continuous for all $x \in \mathbb{R}$, by MVT there exists:
+Let $f(z) = \sin(z)$. Since $\sin z$ is differentiable and continuous for all $x \in \mathbb{R}$, by MVT there exists:
 \begin{align*} 
     f'(c) &= \frac{f(x) - f(y)}{x - y} \\
     \cos (z) &=  \frac{f(x) - f(y)}{x - y} \\
@@ -472,7 +472,7 @@ In other words:
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 0.8\linewidth]{Images/first derivative test.png}
+    \includegraphics[width = 0.6\linewidth]{Images/first derivative test.png}
     \caption{First derivative test (1) Minimum point, (2) Maximum point (3) Neither}
 \end{figure}
 \paragraph{Proof (1)}
@@ -493,12 +493,37 @@ For $x = 0$
 Hence, $f'(x)$ is not defined.
 Then we have - - - |0|- - - |1| +++. By first derivative test, $f(x)$ has a local minimum point at $x = 1$. Since $x \to \pm \infty$ f(x) is increasing,
 then $x = 1$ is also an absolute minimum.
+
+\paragraph{Note}
+Note that first derivative test \textbf{does not always apply}. For example:
+\begin{align*} 
+    f(x) = 
+    \begin{cases} 
+        x^2(1 + \sin \frac{\pi}{x})\, & x \neq 0 \\
+        0 & x = 0
+    \end{cases} 
+\end{align*}
+
+\[
+    f'(0) = \lim_{h \to 0} \frac{f(h) - f(0)}{h} =  \lim_{h \to 0} h(1 + \sin \frac{\pi}{h}) = 0
+\]
+
+Hence, $x = 0$ is a critical point. However,
+\[
+    f'(x) = 2x(\sin \frac{\pi}{x}) - \pi (\cos \frac{\pi}{x})
+\]
+which no matter what value of $a > 0$ is, in the interval $(0, a)$ there exist $x_1$ and $x_2$ such that 
+$f'(x_1) > 0$ and $f'(x_2) < 0$. So $f$ is NEVER always increasing or always decreasing near 0, on the right. 
+Hence none of the conditions in the first derivative test is satisfied.
+
+However, $f(0)$ is still a local and absolute minimum because $f(0) = 0$, and $f(x) > 0 \; \forall \, x \neq 0$
+
 \subsection{Concavity and Inflection Point}
 \paragraph{Definition - Concavity}
 The graph of a differentiable function $y = f(x)$ is:
 \begin{enumerate} 
      \item \textbf{Concave up} on an interval $I$ if $f'(x)$ is increasing.
-     \item \textbf{Concave down} on an interval $I$if $f'(x)$ is decreasing.
+     \item \textbf{Concave down} on an interval $I$ if $f'(x)$ is decreasing.
 \end{enumerate}
 \begin{figure}[h!]
      \centering
@@ -526,7 +551,7 @@ If $c$ is an inflection point, then either $f''(c) = 0$ or $f''(x)$ doesn't exis
 \paragraph{Note} In Thomas' Calculus, an inflection point need to have \textbf{a tangent line} or differentiable at $c$.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 0.6\linewidth]{Images/inflection fail.png}
+    \includegraphics[width = 0.45\linewidth]{Images/inflection fail.png}
     \caption{Where inflection point fails, at $c$, $f(x)$ doesn't have a tangent line}
 \end{figure}
 \paragraph{Example} Find the inflection point of $f(x) = x^{1/3}$
@@ -548,7 +573,7 @@ Hence, $f(x)$ has a tangent line at $x = 0$.
 
 \begin{figure}[h!]
      \centering
-     \includegraphics[width = 0.5\linewidth]{Images/inflection example.png}
+     \includegraphics[width = 0.4\linewidth]{Images/inflection example.png}
      \caption{Graph of $y = x^{1/3}$}
 \end{figure}
 Hence, (0,0) is a point of inflection.
@@ -565,7 +590,7 @@ Suppose $f''$ is continuous on an interval containing c.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 0.5\linewidth]{Images/second derivative test.png}
+    \includegraphics[width = 0.3\linewidth]{Images/second derivative test.png}
 \end{figure}
 
 \paragraph{Proof (Statement 2)}
@@ -636,6 +661,79 @@ At $x = 0$, consider $a = -1$ and $b = 1$. $f'(1) < 0$ and $f'(-1) < 0$, so, it 
     \end{enumerate}
 \end{theorem}
 
+\begin{figure}[h!]
+    \begin{subfigure}{0.5 \linewidth}
+       \centering
+       \begin{tikzpicture} 
+           \draw[draw=black] (0, 0) .. controls (0.5,2) and (2, 2.5).. (3, 3);
+           \draw[draw=red] (0, 0) -- (3, 3);
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=below:{$a$}] (a) at (0,0) {};
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=below:{$b$}] (b) at (3,3) {};
+        \end{tikzpicture}
+        \caption{Concave down}
+    \end{subfigure}
+    \begin{subfigure}{0.5 \linewidth}
+       \centering
+       \begin{tikzpicture} 
+           \draw[draw=black] (0, 3) .. controls (0.5,1) and (2, 0.5).. (3, 0);
+           \draw[draw=red] (0, 3) -- (3, 0);
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=above:{$a$}] (a) at (0,3) {};
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=below:{$b$}] (b) at (3,0) {};
+        \end{tikzpicture}
+        \caption{Concave up}
+    \end{subfigure}
+    \caption{Concavity and Secant Line}
+\end{figure}
+
+\paragraph{Proof (Statement 1)}
+We have the secant line of a graph
+\[
+    y = g(x) = f(a) + \left(\frac{f(b) - f(a)}{b - a}(x - a) \right)
+\]
+
+\begin{figure}[h!] 
+    \centering
+    \begin{tikzpicture} 
+        \draw[draw=black] (0, 0) .. controls (1,4) and (4, 5).. (6, 6);
+        \draw[draw=red] (0, 0) -- (6, 6);
+        \draw[draw=blue] (0, 0) -- (2, 3.6);
+        \draw[draw=blue] (2, 3.6) -- (6, 6);
+        \node[circle,fill=black,inner sep=0pt,minimum size=5pt,label=below:{$a$}] (a) at (0,0) {};
+        \node[circle,fill=red,inner sep=0pt,minimum size=5pt,label=below:{$c$}] (c) at (2,3.6) {};
+        \node[circle,fill=black,inner sep=0pt,minimum size=5pt,label=below:{$b$}] (b) at (6,6) {};
+        \node[circle,fill=blue,inner sep=0pt,minimum size=5pt,label=left:{$c_1$}] (c) at (0.5,1.5) {};
+        \node[circle,fill=blue,inner sep=0pt,minimum size=5pt,label=above:{$c_2$}] (c) at (4,5) {};
+     \end{tikzpicture}
+\end{figure}
+\noindent
+We will show that $f(x) > g(x)$, $\forall \, x \in (a, b)$, given that $f(x)$ is concave down on $(a, b)$.
+\noindent
+Let $x \in (a, b)$. By MVT,
+\[
+    f(x) = f(a) + f'(c_1)(x - a) \textrm{ \tab for some } c_1 \in (a, x)
+\]
+\[
+    f(b) = f(x) + f'(c_2)(b - x) \textrm{ \tab for some } c_2 \in (x, b)
+\]
+Then,
+\[
+    f(b) = f(a) + f'(c_1)(x - a) + f'(c_2)(b - x) 
+\]
+Since $f$ is concave down on $(a, b)$, then $f'(c_1) > f'(c_2)$, So,
+\begin{align*} 
+    f(b) &< f(a) + f'(c_1)(x - a) + f'(c_1)(b - x) \\
+    f(b) &< f(a) + f'(c_1)(b - a) \\
+    \frac{f(b) - f(a)}{b - a} &< f'(c_1) 
+\end{align*}
+
+Therefore we have:
+\begin{align*} 
+    g(x) = f(a) + \left(\frac{f(b) - f(a)}{b - a}(x - a) \right) \\
+    f(x) = f(a) + f'(c_1)(x - a) \\
+    \frac{f(b) - f(a)}{b - a} < f'(c_1) 
+\end{align*}
+From the above we have $f(x) > g(x)$
+
 \subsection{Concavity and Tangent Line}
 \begin{theorem}[Concavity and Tangent Lines]
     Let $f$ be continuous on $[a, b]$ and differentiable on $(a, b)$.
@@ -645,6 +743,82 @@ At $x = 0$, consider $a = -1$ and $b = 1$. $f'(1) < 0$ and $f'(-1) < 0$, so, it 
     \end{enumerate}
 \end{theorem}
 
+\begin{figure}[h!]
+    \begin{subfigure}{0.5 \linewidth}
+       \centering
+       \begin{tikzpicture} 
+           \draw[draw=black] (0, 0) .. controls (0.5,2) and (2, 2.5).. (3, 3);
+           \draw[draw=red] (-0.4, 0.4) -- (2.6, 3.4);
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=below:{$a$}] (a) at (0,0) {};
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=below:{$b$}] (b) at (3,3) {};
+           \node[circle,fill=red,inner sep=0pt,minimum size=4pt,label=below:{$c$}] (c) at (1,1.82) {};
+        \end{tikzpicture}
+        \caption{Concave down}
+    \end{subfigure}
+    \begin{subfigure}{0.5 \linewidth}
+       \centering
+       \begin{tikzpicture} 
+           \draw[draw=black] (0, 3) .. controls (0.5,1) and (2, 0.5).. (3, 0);
+           \draw[draw=red] (-0.4, 2.6) -- (2.6, -0.4);
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=above:{$a$}] (a) at (0,3) {};
+           \node[circle,fill=black,inner sep=0pt,minimum size=4pt,label=below:{$b$}] (b) at (3,0) {};
+           \node[circle,fill=red,inner sep=0pt,minimum size=4pt,label=below:{$c$}] (c) at (1,1.22) {};
+        \end{tikzpicture}
+        \caption{Concave up}
+    \end{subfigure}
+    \caption{Concavity and Tangent Line}
+\end{figure}
+
+\paragraph{Proof (Statement 1)}
+Let $g(x)$ as a tangent line at $c$
+\[
+    g(x) = f(c) + f'(c)(x - c)
+\]
+Let $x \in [a, b] \setminus \{c\}$ 
+\begin{align*} 
+    g(x) > f(x) &\Leftrightarrow f(c) + f'(c)(x - c) > f(x) \\
+    &\Leftrightarrow f'(c)(x - c) > f(x) - f(c) \\
+    &\Leftrightarrow f'(c) 
+    \begin{cases}
+        > \frac{f(x) - f(c)}{x - c} \textrm{\tab if } x > c \Rightarrow x - c > 0\\ 
+        < \frac{f(x) - f(c)}{x - c} \textrm{\tab if } x < c \Rightarrow x - c < 0\\
+    \end{cases} 
+\end{align*} 
+\begin{figure}[h!] 
+    \centering
+    \begin{tikzpicture} 
+        \draw[draw=black] (0, 0) .. controls (1,4) and (4, 5).. (6, 6);
+        \draw[draw=red] (-0.8, 0.8) -- (5.2, 6.8);
+        \draw[draw=blue] (0.5, 1.5) -- (2, 3.6);
+        \draw[draw=blue] (2, 3.6) -- (4, 5);
+        \node[circle,fill=black,inner sep=0pt,minimum size=5pt,label=below:{$a$}] (a) at (0,0) {};
+        \node[circle,fill=red,inner sep=0pt,minimum size=5pt,label=below:{$c$}] (c) at (2,3.6) {};
+        \node[circle,fill=black,inner sep=0pt,minimum size=5pt,label=below:{$b$}] (b) at (6,6) {};
+        \node[circle,fill=blue,inner sep=0pt,minimum size=5pt,label=left:{$x_1$}] (c) at (0.5,1.5) {};
+        \node[circle,fill=blue,inner sep=0pt,minimum size=5pt,label=above:{$x_2$}] (c) at (4,5) {};
+     \end{tikzpicture}
+\end{figure}
+Then, we will show that the last equation is true (eq. 1), that is: 
+\begin{align*} 
+    f'(c) 
+    \begin{cases}
+        > \frac{f(x) - f(c)}{x - c} \textrm{\tab } \forall \, x \in (c, b]\\ 
+        < \frac{f(x) - f(c)}{x - c} \textrm{\tab } \forall \, x \in [a, c)\\
+    \end{cases} 
+\end{align*}
+
+\noindent
+First, assume $x \in (c, b]$. By MVT,
+\[
+    f'(c_1) = \frac{f(x) - f(c)}{x - c} \textrm{ \tab for some } c_1 \in (c, x)
+\]
+Since $f$ is concave down on $(a, b)$, then $f'(c_1) < f'(c)$, So,
+\[
+    \frac{f(x) - f(c)}{x - c} < f'(c)
+\]
+Which prove the first case of eq. 1. the second case can be proven in the same manner. Hence,
+eq. 1 is proven.
+
 \section{Graph Sketching}
 Important things to sketch a graph: domain, symmetry, critical points, interval of monotonicity, points of inflection,
 intervals of concavity, asymptotes, and x-y intercepts.
@@ -653,6 +827,12 @@ intervals of concavity, asymptotes, and x-y intercepts.
 \[
     f(x) = \frac{x^2 + 4}{2x} 
 \]
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.5\linewidth]{Images/graph sketching example.png}
+    \caption{Graph of $f(x)$}
+\end{figure}
+
 (1) Domain = $(-\infty, 0) \cup (0, \infty)$ \\
 (2) Symmetry \\
 \begin{itemize} 
@@ -693,21 +873,84 @@ Hence, $x = 0$ is a vertical asymptote. \\ \\
 (6) x and y intercepts \\
 No x and y intercept since $x, y \neq 0$
 
-\begin{figure}[h!]
-     \centering
-     \includegraphics[width = 0.5\linewidth]{Images/graph sketching example.png}
-     \caption{Graph of $f(x)$}
-\end{figure}
 \section{Applied Optimization}
 \paragraph{Example 1}
-rectangle is to be inscribed in a semicircle of radius 2. What is the
+Rectangle is to be inscribed in a semicircle of radius 2. What is the
 largest area the rectangle can have, and what are its dimensions?
+\begin{figure}[h!]
+     \centering
+     \includegraphics[width = 0.5\linewidth]{Images/applied example.png}
+     \caption{Illustration of Example 1}
+\end{figure}
+\paragraph{Solution}
+From the circle equation we have:
+\begin{align*} 
+    x^2 + y^2 &= 4 \\
+    y^2 &= 4 - x^2 \\
+    y = \sqrt{4 - x^2}
+\end{align*}
+
+The area of the rectangle can be denoted as
+\begin{align*} 
+     A &= 2x \cdot y \\
+     A &= 2x \sqrt{4 - x^2}
+\end{align*}
+
+To maximize the area, then $A' = 0$
+\begin{align*} 
+    A' &= 2 \sqrt{4 - x^2} + \frac{ - 2x^2}{\sqrt{4 - x^2}} \\
+    0 &= \frac{2(4 - x^2) - 2x^2}{\sqrt{4 - x^2}} \\
+    2x^2 &= 8 - 2x^2 \\
+    x^2 &= 2 \\
+    x &= \pm \sqrt{2} \\ \\
+    y &= \sqrt{4 - 2} = \sqrt{2}
+\end{align*}
+
+We have $A(0) = 0$, $A(\sqrt{2}) = 4$, $A(2) = 0$. Hence, absolute
+maximum at $x = \sqrt{2}$, and the dimension is $(\sqrt{2}, \sqrt{2})$
 
 \paragraph{Example 2}
 A man launches his boat from point A on a bank of a straight river, 3 km wide, 
 and wants to reach point B, 8 km downstream on the opposite bank, as quickly as possible (see figure). He could row his boat directly across the river to point C 
 and then run to B, or he could row directly to B, or he could row to some point D between C and B and then run to B. If he can row 6 km/h and run 8 km/h, where should 
 he land to reach B as soon as possible? (We assume that the speed of the water is negligible.) 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.2\linewidth]{Images/applied example 2-1.png}
+    \caption{Illustration of Example 2}
+\end{figure}
+
+\paragraph{Solution}
+\[
+    t = \frac{s}{v} = \frac{|AD|}{6} + \frac{|DB|}{8} 
+\]
+
+From the figure we can see that 
+\begin{align*} 
+     |AD| = \sqrt{(8 - |DB|)^2 + 9}
+\end{align*}
+
+Let $|DB| = x$, then 
+\begin{align*} 
+    t &= \frac{s}{v} = \frac{\sqrt{(8 - x)^2 + 9}}{6} + \frac{x}{8} \\
+    t' &= \frac{1}{6} \cdot \frac{ -2(8 - x)}{2 \sqrt{(8 - x)^2 + 9}} + \frac{1}{8} \\
+    t' &= \frac{x - 8}{6 \sqrt{(8 - x)^2 + 9}} + \frac{1}{8} 
+\end{align*}
+
+To minimze $t$, $t' = 0$, so, 
+\begin{align*} 
+     - \frac{1}{8} &= \frac{x - 8}{6 \sqrt{(8 - x)^2 + 9}} \\
+     6 \sqrt{(8 - x)^2 + 9} &= 8(8 - x)\\
+     36((8 - x^2) + 9) &= 64(8 - x)^2 \\
+     36(8 - x^2) + 324 &= 64(8 - x)^2 \\
+     28(8 - x)^2 &= 324 \\
+     (8 - x)^2 = \frac{324}{28} \\
+     8 - x = \sqrt{\frac{324}{28}} \\
+     x = 8 - \sqrt{\frac{324}{28}} \approx 4.598
+\end{align*}
+
+So, $|CD| = 8 - 4.598 = 3.402$ km.
 
 \paragraph{Example 3}
 Suppose $x$ = number of video game consoles, million units \\
@@ -716,5 +959,114 @@ Revenue : $R(x) = 9x$ \\
 Profit : $P(x) = R(x) - C(x)$ \\
 Find $x$ that maximizes profit, if any.
 
+\paragraph{Solution}
+\begin{align*} 
+     P(x) &= 9x - (x^3 - 6x^2 + 15x) \\
+     P'(x) &= 9 - 3x^2 + 12x - 15 \\
+     P'(x) &= 3(- x^2 + 4x - 6) \\
+\end{align*}
+
+To maximizes $P(x)$, $P'(x) = 0$
+\begin{align*} 
+    P'(x) = 3(- x^2 + 4x - 2) \\
+    0 = x^2 - 4x - 2 \\
+    x = \frac{4 \pm \sqrt{16 - 4(1)( - 2)}}{2} \\
+    x = 2 \pm \sqrt{2} 
+\end{align*}
+
+Check the local min/max
+\begin{align*} 
+     P''(x) &= - 6x + 12 \\
+     P''(2 + \sqrt{2}) &= - 6(2 + \sqrt{2}) + 12 = - 6 \sqrt{2} < 0 \\
+     P''(2 - \sqrt{2}) &= - 6(2 - \sqrt{2}) + 12 = 6 \sqrt{2} > 0
+\end{align*}
+
+Since $P''(2 - \sqrt{2}) < 0$ it's a local minimum, and $P''((2 + \sqrt{2})) > 0$ then it's a local maximum
+
+\[
+    P(2 + \sqrt{2}) = x^3 - 6x^2 - 6x = (2 + \sqrt{2})^3 - 6(2 + \sqrt{2})^2 - 6((2 + \sqrt{2}))  > 0
+\]
+
+Hence, profit maximizes at $x = 2 + \sqrt{2}$ or 3.14 million units
+
 \section{Newton's Method}
+\subsection{Introduction}
+Newton's method (a.k.a. Newton Raphson method) is a numerical method for finding approximate solution to a function especially those which is difficult/impossible
+to be solved analytically.
+
+\paragraph{Example} Consider a polynomial function
+\[
+    f(x) = a_n x^n + a_{n - 1}x^{n - 1} + \dots + a_1 x + a_0 \textrm{\tab} a_n \neq 0
+\]
+What value is $x$ when $f(x) = 0$?
+
+For $n = {1, 2}$ we can solve it easily (using linear eq. or quadratic formula). For $n = {3, 4}$, it's a bit hard but can be solved using
+general formula. But, for $n > 4$, there's no general formula.
+
+\subsection{Method}
+Procedure for Newton's method is:
+\begin{enumerate} 
+    \item Start with a point $x_0$ near root a root $r$.
+    \item Let $L_i$ be the tangent line to $y = f(x)$ at $x = x_i$, with $L_i = f(x_i) + f'(x_1)(x - x_i)$
+    \item If $f'(x_i) \neq 0$, $L_i$ will intersect the x-axis at some point $x_{i + 1}$.
+    \item Repeat above step until $f(x_i) \approx 0$.
+\end{enumerate}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.35\linewidth}
+        \centering
+        \includegraphics[width = 1\linewidth]{Images/newton's method 1.png}
+    \end{subfigure}
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \includegraphics[width = 1\linewidth]{Images/newton's method 2.png}
+    \end{subfigure}
+    \caption{How Newton's method works}
+\end{figure}
+Hence,
+\[
+    x_{i + 1} = x_1 - \frac{f'(x_i)}{f(x_i)} \textrm{\tab if } f'(x_1) \neq 0  
+\]
+
+\paragraph{Example} Consider $f(x) = x^3 - 2x - 5$. \\
+Since $f(2) = -1 $ and $f(3) = 11 > 0$, there by IVT, exists $r \in (2, 3)$ such that $f(r) = 0$. Consider $x_0 = 2$.
+\[
+    f'(x) = 3x^2 - 2
+\]
+So, 
+\begin{align*} 
+     x_1 &= 2 - \frac{8 - 4 - 5}{3(4) - 2} = 2.1 \\
+     x_2 &= 2.1 - \frac{(2.1)^3 - 2(2.1) - 5}{3(2.1)^2 - 2} = 2.094568 \\ 
+     x_3 &= 2.094568 - \frac{(2.094568)^3 - 2(2.094568) - 5}{3(2.094568)^2 - 2} = 2.094551 
+\end{align*}
+\noindent
+We take $x = 2.094568$ as r, $f(r) = -5.357 \times 10^{-6} \approx 0$.
+
+\noindent
+$x_0 = 2$ is an arbitrary choice. We can choose $x_0 =3$ and $x_n$ converges to the same $r$.
+
+\subsection{Newton's Method Failure}
+Sometimes the method doesn't work because $x_n$ doesn't converge to a root $r$, or it can converge to a root
+we're not interested in (e.g. negative root).
+\paragraph{Example}
+
+\begin{align*} 
+    f(x) = 
+    \begin{cases}
+        \sqrt{x - r} \textrm{\tab if } x \geq r \\
+        - \sqrt{r - x} \textrm{\tab if } x < r
+    \end{cases} 
+\end{align*}
+
+If we pick $x_0 = r - h$, then we have $x_1 = r + h$, $x_2 = r - h$, $x_3 = r + h$. Hence, 
+$x_n$ does not converge to any single number, and so does not converge to $r$ (oscillating between $r - h$ and $r + h$).
+
+
+\paragraph{Note} There are some conditions when newton's method work. One possible condition
+is: 
+
+Suppose $f$ is continuous on $[a, b]$ and differentiable on $(a, b)$ and $f(r) = 0$ where $r \in (a, b)$.
+If $f(r) = 0$ , then there exists $\delta >0$ such that, with any starting point, $x_0 \in (r - \delta, r + \delta)$, 
+the sequence $x_n$ converges to $r$.
+
 \end{document}
